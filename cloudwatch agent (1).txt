@@ -1,0 +1,23 @@
+install
+
+yum install amazon-cloudwatch-agent
+
+configure
+
+ /opt/aws/amazon-cloudwatch-agent/bin/amazon-cloudwatch-agent-config-wizard
+
+start
+
+ /opt/aws/amazon-cloudwatch-agent/bin/amazon-cloudwatch-agent-ctl -a fetch-config -m ec2 -s -c file:config.json
+
+apt install collectd
+systemctl start collectd
+
+sudo systemctl start amazon-cloudwatch-agent
+sudo systemctl status amazon-cloudwatch-agent
+sudo systemctl enable amazon-cloudwatch-agent
+
+role
+
+ CloudWatchAgentServerPolicy
+
